@@ -33,6 +33,7 @@ namespace PathFinder.WinForms.Forms
 
             scbNewTabStartPath.SelectedFolder = new ShellItem(settings.StartPath);
             scbRootTreeviewPath.SelectedFolder = new ShellItem(settings.RootPath);
+            RefreshRegisterButton();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -67,6 +68,49 @@ namespace PathFinder.WinForms.Forms
         private void cbSingleInstance_CheckedChanged(object sender, EventArgs e)
         {
             settings.SingleInstance = cbSingleInstance.Checked;
+        }
+
+        private void btnRegisterAsDefaultApp_Click(object sender, EventArgs e)
+        {
+            if (RegisterApp.IsRegistered())
+            {
+                if (RegisterApp.Unregister())
+                {
+                    MessageBox.Show(this, "Application was succefully unregistered.", "Application register",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(this, "Application unregistration failed", "Application register",
+                       MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+            else
+            {
+                if (RegisterApp.Register())
+                {
+                    MessageBox.Show(this, "Application was succefully registered.", "Application register",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(this, "Application registration failed", "Application register",
+                       MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+            RefreshRegisterButton();
+        }
+
+        private void RefreshRegisterButton()
+        {
+            if (RegisterApp.IsRegistered())
+            {
+                btnRegisterAsDefaultApp.Text = "Unregister";
+            }
+            else
+            {
+                btnRegisterAsDefaultApp.Text = "Register";
+            }
         }
     }
 }

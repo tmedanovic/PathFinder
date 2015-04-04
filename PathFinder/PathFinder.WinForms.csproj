@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\AppSettings.cs" />
+    <Compile Include="App\RegisterApp.cs" />
     <Compile Include="Forms\FrmFileTreeView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +157,10 @@
     <ProjectReference Include="..\PathFinder.Plugins\PathFinder.Core.Plugins.csproj">
       <Project>{EE995A88-31E6-4BDC-9C87-C4C9EEDB28AA}</Project>
       <Name>PathFinder.Core.Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PathFinder.Register\PathFinder.Register.csproj">
+      <Project>{c0556333-5fac-4f1d-847c-5f06addb4f28}</Project>
+      <Name>PathFinder.Register</Name>
     </ProjectReference>
     <ProjectReference Include="..\PathFinder.WinForms.Controls\PathFinder.WinForms.Controls.csproj">
       <Project>{637E7A7F-4F1C-4AC3-BB3C-E6C64F75CDFA}</Project>

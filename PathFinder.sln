@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathFinder.Core.Helpers", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "General", "General", "{F09E6A71-F7D8-4959-80E1-E8F9818BA06B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathFinder.Register", "PathFinder.Register\PathFinder.Register.csproj", "{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CodeAnalysisDebug|Any CPU = CodeAnalysisDebug|Any CPU
@@ -123,6 +125,24 @@ Global
 		{71F6903C-7524-450A-AF38-CAA96690B60F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{71F6903C-7524-450A-AF38-CAA96690B60F}.Release|x64.ActiveCfg = Release|Any CPU
 		{71F6903C-7524-450A-AF38-CAA96690B60F}.Release|x86.ActiveCfg = Release|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.CodeAnalysisDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.CodeAnalysisDebug|Any CPU.Build.0 = Debug|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.CodeAnalysisDebug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.CodeAnalysisDebug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.CodeAnalysisDebug|x64.ActiveCfg = Debug|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.CodeAnalysisDebug|x86.ActiveCfg = Debug|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.Release|x64.ActiveCfg = Release|Any CPU
+		{C0556333-5FAC-4F1D-847C-5F06ADDB4F28}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

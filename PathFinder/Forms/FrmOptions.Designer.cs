@@ -33,6 +33,14 @@ namespace PathFinder.WinForms.Forms
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpGeneral = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnRegisterAsDefaultApp = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.scbNewTabStartPath = new GongSolutions.Shell.ShellComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.scbRootTreeviewPath = new GongSolutions.Shell.ShellComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbSingleInstance = new System.Windows.Forms.CheckBox();
             this.bsOptions = new System.Windows.Forms.BindingSource(this.components);
@@ -43,20 +51,15 @@ namespace PathFinder.WinForms.Forms
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.scbRootTreeviewPath = new GongSolutions.Shell.ShellComboBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.scbNewTabStartPath = new GongSolutions.Shell.ShellComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tpGeneral.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsOptions)).BeginInit();
             this.gbOnClose.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -71,6 +74,7 @@ namespace PathFinder.WinForms.Forms
             // 
             // tpGeneral
             // 
+            this.tpGeneral.Controls.Add(this.groupBox4);
             this.tpGeneral.Controls.Add(this.groupBox3);
             this.tpGeneral.Controls.Add(this.groupBox2);
             this.tpGeneral.Controls.Add(this.groupBox1);
@@ -82,6 +86,82 @@ namespace PathFinder.WinForms.Forms
             this.tpGeneral.TabIndex = 1;
             this.tpGeneral.Text = "General";
             this.tpGeneral.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnRegisterAsDefaultApp);
+            this.groupBox4.Location = new System.Drawing.Point(17, 200);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(164, 89);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Register as system default file manager";
+            // 
+            // btnRegisterAsDefaultApp
+            // 
+            this.btnRegisterAsDefaultApp.Location = new System.Drawing.Point(26, 41);
+            this.btnRegisterAsDefaultApp.Name = "btnRegisterAsDefaultApp";
+            this.btnRegisterAsDefaultApp.Size = new System.Drawing.Size(103, 23);
+            this.btnRegisterAsDefaultApp.TabIndex = 0;
+            this.btnRegisterAsDefaultApp.Text = "Register";
+            this.btnRegisterAsDefaultApp.UseVisualStyleBackColor = true;
+            this.btnRegisterAsDefaultApp.Click += new System.EventHandler(this.btnRegisterAsDefaultApp_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.scbNewTabStartPath);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Location = new System.Drawing.Point(201, 116);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(281, 78);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "New tab start path";
+            // 
+            // scbNewTabStartPath
+            // 
+            this.scbNewTabStartPath.Location = new System.Drawing.Point(72, 29);
+            this.scbNewTabStartPath.Name = "scbNewTabStartPath";
+            this.scbNewTabStartPath.Size = new System.Drawing.Size(203, 23);
+            this.scbNewTabStartPath.TabIndex = 1;
+            this.scbNewTabStartPath.Text = "shellComboBox2";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Start path: ";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.scbRootTreeviewPath);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Location = new System.Drawing.Point(201, 17);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(281, 78);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Root treeview";
+            // 
+            // scbRootTreeviewPath
+            // 
+            this.scbRootTreeviewPath.Location = new System.Drawing.Point(72, 29);
+            this.scbRootTreeviewPath.Name = "scbRootTreeviewPath";
+            this.scbRootTreeviewPath.Size = new System.Drawing.Size(203, 23);
+            this.scbRootTreeviewPath.TabIndex = 1;
+            this.scbRootTreeviewPath.Text = "shellComboBox1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Root path: ";
             // 
             // groupBox1
             // 
@@ -107,7 +187,7 @@ namespace PathFinder.WinForms.Forms
             // 
             // bsOptions
             // 
-            this.bsOptions.DataSource = typeof(AppSettings);
+            this.bsOptions.DataSource = typeof(PathFinder.WinForms.App.AppSettings);
             // 
             // gbOnClose
             // 
@@ -190,62 +270,6 @@ namespace PathFinder.WinForms.Forms
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.scbRootTreeviewPath);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(201, 17);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(281, 78);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Root treeview";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Root path: ";
-            // 
-            // scbRootTreeviewPath
-            // 
-            this.scbRootTreeviewPath.Location = new System.Drawing.Point(72, 29);
-            this.scbRootTreeviewPath.Name = "scbRootTreeviewPath";
-            this.scbRootTreeviewPath.Size = new System.Drawing.Size(203, 23);
-            this.scbRootTreeviewPath.TabIndex = 1;
-            this.scbRootTreeviewPath.Text = "shellComboBox1";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.scbNewTabStartPath);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Location = new System.Drawing.Point(201, 103);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(281, 78);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "New tab start path";
-            // 
-            // scbNewTabStartPath
-            // 
-            this.scbNewTabStartPath.Location = new System.Drawing.Point(72, 29);
-            this.scbNewTabStartPath.Name = "scbNewTabStartPath";
-            this.scbNewTabStartPath.Size = new System.Drawing.Size(203, 23);
-            this.scbNewTabStartPath.TabIndex = 1;
-            this.scbNewTabStartPath.Text = "shellComboBox2";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Start path: ";
-            // 
             // FrmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,16 +282,17 @@ namespace PathFinder.WinForms.Forms
             this.Load += new System.EventHandler(this.FrmOptions_Load);
             this.tabControl1.ResumeLayout(false);
             this.tpGeneral.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsOptions)).EndInit();
             this.gbOnClose.ResumeLayout(false);
             this.gbOnClose.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -292,5 +317,7 @@ namespace PathFinder.WinForms.Forms
         private System.Windows.Forms.GroupBox groupBox2;
         private GongSolutions.Shell.ShellComboBox scbRootTreeviewPath;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnRegisterAsDefaultApp;
     }
 }
