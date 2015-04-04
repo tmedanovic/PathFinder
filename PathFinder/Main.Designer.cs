@@ -160,6 +160,7 @@
             // 
             // tsMainMenu
             // 
+            this.tsMainMenu.BackColor = System.Drawing.SystemColors.ControlLight;
             this.tsMainMenu.Dock = System.Windows.Forms.DockStyle.None;
             this.tsMainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsddbFile,
@@ -213,7 +214,7 @@
             // tsmiOptions
             // 
             this.tsmiOptions.Name = "tsmiOptions";
-            this.tsmiOptions.Size = new System.Drawing.Size(152, 22);
+            this.tsmiOptions.Size = new System.Drawing.Size(116, 22);
             this.tsmiOptions.Text = "Options";
             this.tsmiOptions.Click += new System.EventHandler(this.tsmiOptions_Click);
             // 
