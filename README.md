@@ -1,6 +1,11 @@
 # PathFinder
 Extendable file manager based on Windows explorer
 
+Please note that this project is in very early stage of development, 
+and it's not nearly ready for everyday use.
+
+If you like the idea, consider contributing :)
+
 It has two view modes for now, but there is option to register custom views from plugin host
 
 Tabbed view:
@@ -20,3 +25,8 @@ Planned in near future:
 * Plugin manager, similar to npp
 * Installation
 * Auto updater
+
+Known limitations:
+* Built for x86 - due to dependency on excelent library GongShell which wraps native win32 interfaces to managed world
+* Works on Windows vista => (Due to dependency on native interface IExplorerBrowser, compatibility for older versions is considered by using IShellView interface, but this is currently not priority)
+
