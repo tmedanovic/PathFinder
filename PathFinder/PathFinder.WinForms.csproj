@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4024CB54-B419-4F96-938B-303288B955D2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PathFinder.WinForms</RootNamespace>
+    <AssemblyName>PathFinder</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\1426615566_381624.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GongShell, Version=0.6.0.18693, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\GongShell\Shell\bin\Debug\GongShell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>..\packages\DockPanelSuite.3.0.0-alpha8\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App\AppSettings.cs" />
+    <Compile Include="Forms\FrmFileTreeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmFileTreeView.Designer.cs">
+      <DependentUpon>FrmFileTreeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmFileView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmFileView.Designer.cs">
+      <DependentUpon>FrmFileView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmOptions.Designer.cs">
+      <DependentUpon>FrmOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmFileFolders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmFileFolders.Designer.cs">
+      <DependentUpon>FrmFileFolders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\DictionaryExtensions.cs" />
+    <Compile Include="App\SingleInstanceEnforcer.cs" />
+    <Compile Include="Helpers\DockStyleExtensions.cs" />
+    <Compile Include="Helpers\StyleHelper.cs" />
+    <Compile Include="Helpers\ListViewHelper.cs" />
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tracking\FavoritesRepository.cs" />
+    <Compile Include="Tracking\HistoryRepository.cs" />
+    <Compile Include="Tracking\IGenericRepository.cs" />
+    <Compile Include="Tracking\Trackers.cs" />
+    <Compile Include="View\WindowManager.cs" />
+    <Compile Include="View\TabbedView.cs" />
+    <Compile Include="View\WindowsView.cs" />
+    <EmbeddedResource Include="Forms\FrmFileTreeView.resx">
+      <DependentUpon>FrmFileTreeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmFileView.resx">
+      <DependentUpon>FrmFileView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmOptions.resx">
+      <DependentUpon>FrmOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmFileFolders.resx">
+      <DependentUpon>FrmFileFolders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\AppSettings.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PathFinder.Core.Helpers\PathFinder.Core.Helpers.csproj">
+      <Project>{71F6903C-7524-450A-AF38-CAA96690B60F}</Project>
+      <Name>PathFinder.Core.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PathFinder.Core\PathFinder.Core.csproj">
+      <Project>{3BFE897D-64C9-4460-A595-750696B817E2}</Project>
+      <Name>PathFinder.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PathFinder.Plugins\PathFinder.Core.Plugins.csproj">
+      <Project>{EE995A88-31E6-4BDC-9C87-C4C9EEDB28AA}</Project>
+      <Name>PathFinder.Core.Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PathFinder.WinForms.Controls\PathFinder.WinForms.Controls.csproj">
+      <Project>{637E7A7F-4F1C-4AC3-BB3C-E6C64F75CDFA}</Project>
+      <Name>PathFinder.WinForms.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib\GongShell.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Lib\Microsoft.WindowsAPICodePack.dll" />
+    <Content Include="Lib\Microsoft.WindowsAPICodePack.Shell.dll" />
+    <Content Include="Resources\1426615566_381624.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Shell\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
