@@ -9,22 +9,17 @@ namespace PathFinder.WinForms
 {
     internal static class Program
     {
-        [DllImport("user32.dll")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool SetForegroundWindow(IntPtr hWnd);
-
         static void OpenSingleIntance(string[] args)
         {
             try
             {
-
-            if (args.Length > 0)
-            {
-                var mainForm = GetMainFormInstance();
-                mainForm.AddWindow(args[0]);
-                BringToFront();
+                if (args.Length > 0)
+                {
+                    var mainForm = GetMainFormInstance();
+                    mainForm.AddWindow(args[0]);
+                    BringToFront(mainForm);
+                }
             }
-                     }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + "; " + ex.StackTrace);
@@ -36,16 +31,22 @@ namespace PathFinder.WinForms
             return Application.OpenForms.OfType<MainForm>().FirstOrDefault();
         }
 
-        private static void BringToFront()
+        private static void BringToFront(Form form)
         {
-            Process current = Process.GetCurrentProcess();
-            foreach (var process in Process.GetProcessesByName(current.ProcessName))
+            if (form.InvokeRequired)
             {
-                if (process.Id != current.Id)
+                form.Invoke((MethodInvoker) delegate
                 {
-                    SetForegroundWindow(process.MainWindowHandle);
-                    break;
-                }
+                    form.WindowState = FormWindowState.Minimized;
+                    form.Show();
+                    form.WindowState = FormWindowState.Normal;
+                });
+            }
+            else
+            {
+                form.WindowState = FormWindowState.Minimized;
+                form.Show();
+                form.WindowState = FormWindowState.Normal;
             }
         }
 

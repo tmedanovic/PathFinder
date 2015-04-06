@@ -26,7 +26,7 @@ namespace PathFinder.Register
             shellPfKey.SetValue("", "Open in Path finder");
 
             var shellPfCommandKey = shellPfKey.CreateSubKey("command");
-            shellPfCommandKey.SetValue("", String.Format("\"{0}\" \"%1\"", appPath));
+            shellPfCommandKey.SetValue("", String.Format("\"{0}\" %1", appPath));
         }
 
         private static void Unregister(string key)
