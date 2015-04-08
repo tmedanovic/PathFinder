@@ -26,13 +26,21 @@ namespace PathFinder.Register
             shellPfKey.SetValue("", "Open in Path finder");
 
             var shellPfCommandKey = shellPfKey.CreateSubKey("command");
-            shellPfCommandKey.SetValue("", String.Format("\"{0}\" %1", appPath));
+
+            if (key.EndsWith(@"Drive\shell"))
+            {
+                shellPfCommandKey.SetValue("", String.Format("{0} %1", appPath));
+            }
+            else
+            {
+                shellPfCommandKey.SetValue("", String.Format("{0} \"%1\"", appPath));
+            }
         }
 
         private static void Unregister(string key)
         {
             var shellKey = Registry.CurrentUser.OpenSubKey(key, true);
-            shellKey.SetValue("", "");
+            shellKey.SetValue("", "none");
 
             shellKey.DeleteSubKeyTree("PathFinder");
         }

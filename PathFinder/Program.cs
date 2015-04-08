@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using PathFinder.WinForms.App;
 
@@ -17,7 +15,7 @@ namespace PathFinder.WinForms
                 {
                     var mainForm = GetMainFormInstance();
                     mainForm.AddWindow(args[0]);
-                    BringToFront(mainForm);
+                    BringToFront(mainForm); 
                 }
             }
             catch (Exception ex)
@@ -37,16 +35,22 @@ namespace PathFinder.WinForms
             {
                 form.Invoke((MethodInvoker) delegate
                 {
-                    form.WindowState = FormWindowState.Minimized;
-                    form.Show();
-                    form.WindowState = FormWindowState.Normal;
+                    if (form.WindowState == FormWindowState.Minimized)
+                    {
+                        form.WindowState = FormWindowState.Normal;
+                    }
+
+                    form.Activate();
                 });
             }
             else
             {
-                form.WindowState = FormWindowState.Minimized;
-                form.Show();
-                form.WindowState = FormWindowState.Normal;
+                if (form.WindowState == FormWindowState.Minimized)
+                {
+                    form.WindowState = FormWindowState.Normal;
+                }
+
+                form.Activate();
             }
         }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GongSolutions.Shell.Interop;
 using PathFinder.Core.Filesystem;
 using PathFinder.Core.Helpers;
 
