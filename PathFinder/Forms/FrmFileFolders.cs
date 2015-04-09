@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Windows.Forms;
@@ -109,6 +110,17 @@ namespace PathFinder.WinForms.Forms
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        private void fileFolderListView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var item = fileFolderListView1.SelectedItems[0];
+
+            if (item != null)
+            {
+                var ffi = (IFileFolderInfo) item.Tag;
+                Process.Start(ffi.ParsingName);
             }
         }
     }

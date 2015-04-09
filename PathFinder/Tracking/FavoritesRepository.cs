@@ -28,6 +28,14 @@ namespace PathFinder.WinForms.Tracking
             {
                 Item.Dictionary.Add(item.ParsingName, 1);
             }
+
+            var keys = Item.Dictionary.Skip(20).Select(val => val.Key);
+
+            foreach (var key in keys)
+            {
+                Item.Dictionary.Remove(key);
+            }
+
             OnChanged();
         }
 

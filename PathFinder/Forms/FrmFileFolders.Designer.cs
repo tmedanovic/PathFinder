@@ -53,13 +53,14 @@ namespace PathFinder.WinForms.Forms
             this.fileFolderListView1.TabIndex = 0;
             this.fileFolderListView1.UseCompatibleStateImageBehavior = false;
             this.fileFolderListView1.View = System.Windows.Forms.View.List;
+            this.fileFolderListView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.fileFolderListView1_MouseDoubleClick);
             // 
             // folderNameCol
             // 
             this.folderNameCol.Text = "Folder name";
             this.folderNameCol.Width = 120;
             // 
-            // FrmPopularFolders
+            // FrmFileFolders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

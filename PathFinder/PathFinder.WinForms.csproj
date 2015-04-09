@@ -42,6 +42,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\GongShell\Shell\bin\Debug\GongShell.dll</HintPath>
     </Reference>
+    <Reference Include="JacksonSoft.CustomTabControl, Version=1.0.1.7, Culture=neutral, PublicKeyToken=53c237210c7e462d, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\JacksonSoft.CustomTabControl.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\Microsoft.WindowsAPICodePack.dll</HintPath>
@@ -171,6 +175,7 @@
     <Content Include="Lib\GongShell.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Lib\JacksonSoft.CustomTabControl.dll" />
     <Content Include="Lib\Microsoft.WindowsAPICodePack.dll" />
     <Content Include="Lib\Microsoft.WindowsAPICodePack.Shell.dll" />
     <Content Include="Resources\1426615566_381624.ico" />

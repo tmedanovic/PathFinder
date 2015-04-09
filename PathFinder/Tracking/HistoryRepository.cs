@@ -26,6 +26,10 @@ namespace PathFinder.WinForms.Tracking
                 Item.Add(new SerializeableKeyValue<string, DateTime>(item.ParsingName, DateTime.UtcNow));
             }
 
+            if (Item.Count > 20)
+            {
+                Item.RemoveAll(x => Item.IndexOf(x) > 20);
+            }
             OnChanged();
         }
 

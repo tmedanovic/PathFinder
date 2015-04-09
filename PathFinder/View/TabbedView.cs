@@ -12,9 +12,9 @@ namespace PathFinder.WinForms.VIew
 {
     public class TabbedView : BaseView
     {
-        private readonly TabControl m_fullViewPanel;
+        private readonly CustomTabControl m_fullViewPanel;
         private readonly ContextMenuStrip m_contextMenu;
-        private readonly TabPage m_newTab;
+        private readonly CustomTabPage m_newTab;
 
         private int NewTabIndex
         {
@@ -36,13 +36,12 @@ namespace PathFinder.WinForms.VIew
 
         public TabbedView(Control container) : base(container)
         {
-            m_fullViewPanel = new TabControl();
-            m_fullViewPanel.Dock = DockStyle.Fill;
-            m_fullViewPanel.Visible = false;
-            m_fullViewPanel.MouseDown += m_fullViewPanel_MouseDown;
+            m_fullViewPanel = new CustomTabControl();
+            InitializeTabControl();
 
             //New tab
-            m_newTab = new TabPage("  +  ");
+            m_newTab = new CustomTabPage();
+            m_newTab.IsNewTabButton = true;
             m_fullViewPanel.TabPages.Add(m_newTab);
             m_fullViewPanel.Selecting += m_fullViewPanel_Selecting;
 
@@ -66,6 +65,37 @@ namespace PathFinder.WinForms.VIew
             Container.Controls.Add(m_fullViewPanel);
         }
 
+        private void InitializeTabControl()
+        {
+            m_fullViewPanel.Dock = DockStyle.Fill;
+            m_fullViewPanel.Visible = false;
+            m_fullViewPanel.MouseDown += m_fullViewPanel_MouseDown;
+            m_fullViewPanel.DisplayStyle = TabStyle.Chrome;
+            m_fullViewPanel.DisplayStyleProvider.BorderColor = SystemColors.ControlDark;
+            m_fullViewPanel.DisplayStyleProvider.BorderColorHot = SystemColors.ControlDark;
+            m_fullViewPanel.DisplayStyleProvider.BorderColorSelected = Color.FromArgb(127, 157, 185);
+            m_fullViewPanel.DisplayStyleProvider.CloserColor = Color.DarkGray;
+            m_fullViewPanel.DisplayStyleProvider.CloserColorActive = Color.White;
+            m_fullViewPanel.DisplayStyleProvider.FocusTrack = false;
+            m_fullViewPanel.DisplayStyleProvider.HotTrack = true;
+            m_fullViewPanel.DisplayStyleProvider.ImageAlign = ContentAlignment.MiddleRight;
+            m_fullViewPanel.DisplayStyleProvider.Opacity = 1F;
+            m_fullViewPanel.DisplayStyleProvider.Overlap = 10;
+            m_fullViewPanel.DisplayStyleProvider.Padding = new Point(15, 5);
+            m_fullViewPanel.DisplayStyleProvider.Radius = 10;
+            m_fullViewPanel.DisplayStyleProvider.ShowTabCloser = true;
+            m_fullViewPanel.DisplayStyleProvider.TextColor = SystemColors.ControlText;
+            m_fullViewPanel.DisplayStyleProvider.TextColorDisabled = SystemColors.ControlDark;
+            m_fullViewPanel.DisplayStyleProvider.TextColorSelected = SystemColors.ControlText;
+            m_fullViewPanel.ItemSize = new Size(200,20);
+            m_fullViewPanel.TabClosing += m_fullViewPanel_TabClosing;
+        }
+
+        void m_fullViewPanel_TabClosing(object sender, TabControlCancelEventArgs e)
+        {
+           CallWindowRemoving(e.TabPageIndex);
+        }
+
         void m_fullViewPanel_Selecting(object sender, TabControlCancelEventArgs e)
         {
             if (e.TabPage == m_newTab)
@@ -82,9 +112,14 @@ namespace PathFinder.WinForms.VIew
 
         void tsmiCloseAllTabsButThis_Click(object sender, EventArgs e)
         {
+           CloseAllButThis((int)m_contextMenu.Tag);
+        }
+
+        private void CloseAllButThis(int index)
+        {
             m_fullViewPanel.SuspendLayout();
 
-            var selectedTabIndex = (int)m_contextMenu.Tag;
+            var selectedTabIndex = index;
 
             for (var i = m_fullViewPanel.TabPages.Count - 1; i >= 0; i--)
             {
@@ -97,19 +132,12 @@ namespace PathFinder.WinForms.VIew
             m_fullViewPanel.ResumeLayout();
         }
 
+        private bool m_closeAll = false;
+
         void tsmiCloseAllTabs_Click(object sender, EventArgs e)
         {
-            m_fullViewPanel.SuspendLayout();
-
-            for (var i = m_fullViewPanel.TabPages.Count - 1; i >= 0 ; i--)
-            {
-                if( i != NewTabIndex)
-                {
-                    CallWindowRemoving(i);
-                }
-            }
-
-            m_fullViewPanel.ResumeLayout();
+            m_closeAll = true;
+            OnNewWindow();
         }
 
         void tsmiCloseTab_Click(object sender, EventArgs e)
@@ -122,21 +150,6 @@ namespace PathFinder.WinForms.VIew
         {
             if (e.Button == MouseButtons.Left)
             {
-                for (var i = 0; i < m_fullViewPanel.TabPages.Count; i++)
-                {
-                    if (i != NewTabIndex)
-                    {
-                        var r = m_fullViewPanel.GetTabRect(i);
-                        var closeButton = new Rectangle(r.Right - 15, r.Top + 4, 9, 7);
-
-                        if (closeButton.Contains(e.Location))
-                        {
-                            CallWindowRemoving(i);
-                            break;
-                        }
-                    }
-                }
-
                 if (m_fullViewPanel.GetTabRect(NewTabIndex).Contains(e.Location))
                 {
                     OnNewWindow();
@@ -172,38 +185,37 @@ namespace PathFinder.WinForms.VIew
 
         private void RemoveTabPage(TabPage tp)
         {
-            m_fullViewPanel.TabPages.Remove(tp);
+           m_fullViewPanel.TabPages.Remove(tp);
         }
 
         public override void AddWindow(BaseWindow winExplorerWindow)
         {
             m_fullViewPanel.SuspendLayout();
 
-            var tab = AddTab(winExplorerWindow);
+            var tab = AddTab(winExplorerWindow, true);
             m_fullViewPanel.SelectedTab = tab;
-            MoveNewTab();
+
+            if (m_closeAll)
+            {
+                m_closeAll = false;
+                CloseAllButThis(m_fullViewPanel.TabPages.IndexOf(tab));
+            }
 
             m_fullViewPanel.ResumeLayout();
         }
 
         public override void RemoveWindow(BaseWindow baseWindow)
         {
-            m_fullViewPanel.SuspendLayout();
-
             var tab = m_fullViewPanel.TabPages.Cast<TabPage>().SingleOrDefault(x => x.Controls.Contains(baseWindow));
 
             if (tab != null)
             {
                 RemoveTabPage(tab);
+                SelectLastTab();
             }
-
-            MoveNewTab();
-            SelectLastTab();
-
-            m_fullViewPanel.ResumeLayout();
         }
 
-        private TabPage AddTab(BaseWindow baseWindow)
+        private TabPage AddTab(BaseWindow baseWindow, Boolean? lastPos = null)
         {
             var tp = new TabPage(TabName(baseWindow.WindowTitle));
             var explorerWindow = baseWindow as IExplorerWindow;
@@ -218,14 +230,25 @@ namespace PathFinder.WinForms.VIew
            
             baseWindow.Parent = tp;
             baseWindow.ControlBorderStyle = BorderStyle.None;
-            m_fullViewPanel.TabPages.Add(tp);
+
+            if (lastPos.HasValue && m_fullViewPanel.TabPages.Count > 0)
+            {
+                var count = m_fullViewPanel.TabPages.Count;
+                var pos = count - 1;
+                m_fullViewPanel.TabPages.Insert(pos, tp);
+            }
+            else
+            {
+                m_fullViewPanel.TabPages.Add(tp);
+            }
+
             baseWindow.Dock = DockStyle.Fill;
             return tp;
         }
 
         private string TabName(string filename)
         {
-            return (filename.Length > 200 ? filename.Remove(200) + "..." : filename) + "    x";
+            return (filename.Length > 200 ? filename.Remove(200) + "..." : filename);
         }
 
         void fileView_Load(object sender, EventArgs e)
