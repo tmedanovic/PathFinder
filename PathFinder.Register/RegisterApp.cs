@@ -19,7 +19,8 @@ namespace PathFinder.Register
 
         private static void Register(string appPath, string key)
         {
-            var shellKey = Registry.CurrentUser.OpenSubKey(key, true);
+            var shellKey = Registry.CurrentUser.CreateSubKey(key, RegistryKeyPermissionCheck.ReadWriteSubTree);
+            
             shellKey.SetValue("", "PathFinder");
 
             var shellPfKey = shellKey.CreateSubKey("PathFinder");
