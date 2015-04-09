@@ -9,7 +9,7 @@ If you like the idea, consider contributing :)
 It has two view modes for now, but there is option to register custom views from plugin host
 
 Tabbed view:
-![PathFinder tabbed view](https://cloud.githubusercontent.com/assets/5676600/6993135/dfd5b8c2-daea-11e4-8f06-46abf841be96.png)
+![PathFinder tabbed view](https://cloud.githubusercontent.com/assets/5676600/7072143/673c28b6-deea-11e4-96ba-d39c3bdbfddc.png)
 
 Windows view:
 ![PathFinder windows view](https://cloud.githubusercontent.com/assets/5676600/6993132/cc6d5b78-daea-11e4-9b7e-b88a2723a4f2.png)
