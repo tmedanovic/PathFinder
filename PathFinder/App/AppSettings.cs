@@ -10,6 +10,16 @@ namespace PathFinder.WinForms.App
     {
         public static AppSettings Settings = new AppSettings();
 
+        public static string AppPath()
+        {
+            return AppDomain.CurrentDomain.BaseDirectory;
+        }
+
+        public static string PluginsPath()
+        {
+            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plugins");
+        }
+
         public static string AppTempPath(string filename)
         {
             string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);

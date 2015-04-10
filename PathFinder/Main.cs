@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -20,6 +21,7 @@ using WeifenLuo.WinFormsUI.Docking;
 
 namespace PathFinder.WinForms
 {
+   // [Export(typeof(IPluginHost))]
     public partial class MainForm : Form, IPluginHost
     {
         private readonly FrmFileTreeView m_fileTreeView;
@@ -75,6 +77,42 @@ namespace PathFinder.WinForms
             m_windowManager.WindowClosed += (sender, args) => OnWindowClosed(args.BaseWindow);
         }
 
+        #region Plugins
+
+        [ImportMany(AllowRecomposition = true)]
+        public IEnumerable<Lazy<IPlugin>> Plugins { get; set; }
+        private CompositionContainer m_container;
+
+        public void LoadPlugins()
+        {
+            var catalog = new AggregateCatalog();
+            catalog.Catalogs.Add(new AssemblyCatalog(System.Reflection.Assembly.GetExecutingAssembly()));
+
+            var di = new DirectoryInfo(Workspace.PluginsPath());
+            var folders = di.GetDirectories().Select(x => x.FullName);
+
+            foreach (string folder in folders)
+            {
+                var directoryCatalog = new DirectoryCatalog(folder);
+                catalog.Catalogs.Add(directoryCatalog);
+            }
+
+            m_container = new CompositionContainer(catalog);
+            m_container.ComposeParts(this);
+
+            foreach (var plugin in Plugins)
+            {
+                try
+                {
+                    plugin.Value.Initialize(this);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
         #region IPluginHost Members
 
         public event EventHandler<NavigatedEventArgs> RootNavigated;
@@ -93,13 +131,15 @@ namespace PathFinder.WinForms
             toolStripContainer1.TopToolStripPanel.Controls.Add(toolStrip);
         }
 
-        public void Register(Form dockContent, DockFormStyle state)
+        public void Register(UserControl dockContent, DockFormStyle state)
         {
             if (state == DockFormStyle.Document)
             {
                 throw new NotSupportedException("DockState cannot be value of DockState.Document");
             }
-            ((DockContent)dockContent).Show(dockPanel, state.ToDockState());
+
+            var dockFrm = new FrmPluginDock(dockContent);
+            dockFrm.Show(dockPanel, state.ToDockState());
         }
 
         public void Register(BaseView view)
@@ -164,6 +204,9 @@ namespace PathFinder.WinForms
 
         #endregion
 
+
+        #endregion
+
         public void AddWindow(string path)
         {
             if (InvokeRequired)
@@ -203,6 +246,7 @@ namespace PathFinder.WinForms
                 m_popularFolders.Show(m_folderHistory.Pane, DockAlignment.Right, 0.50);
             }
             InitializeMainMenu();
+            LoadPlugins();
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
@@ -355,7 +399,7 @@ namespace PathFinder.WinForms
 
         private void tsmiExit_Click(object sender, EventArgs e)
         {
-            Application.Exit(new CancelEventArgs(false));
+            Application.Exit();
         }
 
         private void tsmiOptions_Click(object sender, EventArgs e)

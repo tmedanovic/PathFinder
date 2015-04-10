@@ -24,7 +24,7 @@ namespace PathFinder.Core.Plugins
 
         void Register(ToolStrip toolStrip);
 
-        void Register(Form dockContent, DockFormStyle state);
+        void Register(UserControl dockContent, DockFormStyle state);
 
         void Register(BaseView view);
 
