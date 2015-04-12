@@ -55,6 +55,8 @@
             this.tsddbView = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsddbWindow = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsmiOptions = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsddbTools = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsmiPluginManager = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -165,6 +167,7 @@
             this.tsMainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsddbFile,
             this.tsddbView,
+            this.tsddbTools,
             this.tsddbWindow});
             this.tsMainMenu.Location = new System.Drawing.Point(0, 0);
             this.tsMainMenu.Name = "tsMainMenu";
@@ -218,6 +221,24 @@
             this.tsmiOptions.Text = "Options";
             this.tsmiOptions.Click += new System.EventHandler(this.tsmiOptions_Click);
             // 
+            // tsddbTools
+            // 
+            this.tsddbTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsddbTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiPluginManager});
+            this.tsddbTools.Image = ((System.Drawing.Image)(resources.GetObject("tsddbTools.Image")));
+            this.tsddbTools.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsddbTools.Name = "tsddbTools";
+            this.tsddbTools.Size = new System.Drawing.Size(49, 22);
+            this.tsddbTools.Text = "Tools";
+            // 
+            // tsmiPluginManager
+            // 
+            this.tsmiPluginManager.Name = "tsmiPluginManager";
+            this.tsmiPluginManager.Size = new System.Drawing.Size(158, 22);
+            this.tsmiPluginManager.Text = "Plugin manager";
+            this.tsmiPluginManager.Click += new System.EventHandler(this.tsmiPluginManager_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,6 +277,8 @@
         private System.Windows.Forms.ToolStripDropDownButton tsddbView; 
         private System.Windows.Forms.ToolStripDropDownButton tsddbWindow;
         private System.Windows.Forms.ToolStripMenuItem tsmiOptions;
+        private System.Windows.Forms.ToolStripDropDownButton tsddbTools;
+        private System.Windows.Forms.ToolStripMenuItem tsmiPluginManager;
     }
 }
 

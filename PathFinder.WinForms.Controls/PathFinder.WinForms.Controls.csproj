@@ -64,6 +64,24 @@
   <ItemGroup>
     <Compile Include="BorderedPanel.cs" />
     <Compile Include="NoLineToolStripRendere.cs" />
+    <Compile Include="Pager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pager.Designer.cs">
+      <DependentUpon>Pager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugins\PluginGridControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Plugins\PluginGridControl.Designer.cs">
+      <DependentUpon>PluginGridControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugins\PluginInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Plugins\PluginInfoControl.Designer.cs">
+      <DependentUpon>PluginInfoControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\WinExplorerWindow.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -83,6 +101,15 @@
     <Compile Include="Windows\_FileView.Designer.cs">
       <DependentUpon>_FileView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Pager.resx">
+      <DependentUpon>Pager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugins\PluginGridControl.resx">
+      <DependentUpon>PluginGridControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugins\PluginInfoControl.resx">
+      <DependentUpon>PluginInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\WinExplorerWindow.resx">
       <DependentUpon>WinExplorerWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +144,14 @@
     <ProjectReference Include="..\PathFinder.Core\PathFinder.Core.csproj">
       <Project>{3BFE897D-64C9-4460-A595-750696B817E2}</Project>
       <Name>PathFinder.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PathFinder.Plugins\PathFinder.Core.Plugins.csproj">
+      <Project>{EE995A88-31E6-4BDC-9C87-C4C9EEDB28AA}</Project>
+      <Name>PathFinder.Core.Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PathFinder.Service\PathFinder.Service.csproj">
+      <Project>{22F08191-060C-40E7-AA6C-881F642C5C64}</Project>
+      <Name>PathFinder.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

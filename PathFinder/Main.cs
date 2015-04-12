@@ -246,7 +246,7 @@ namespace PathFinder.WinForms
                 m_popularFolders.Show(m_folderHistory.Pane, DockAlignment.Right, 0.50);
             }
             InitializeMainMenu();
-            LoadPlugins();
+       //     LoadPlugins();
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
@@ -288,8 +288,7 @@ namespace PathFinder.WinForms
             {
                 if (WindowState == FormWindowState.Minimized)
                 {
-                    notifyIcon.Visible = true;
-                    ShowInTaskbar = false;
+                    MinimizeToTray();
                 }
             }
         }
@@ -324,11 +323,25 @@ namespace PathFinder.WinForms
 
         #endregion
 
-        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void MinimizeToTray()
+        {
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            notifyIcon.Visible = true;
+            ShowInTaskbar = false;
+        }
+
+        private void RestoreFromTray()
         {
             WindowState = FormWindowState.Normal;
             ShowInTaskbar = true;
             notifyIcon.Visible = false;
+            notifyIcon.Icon = null;
+        }
+
+        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            RestoreFromTray();
         }
 
         private IDockContent GetContentFromPersistString(string persistString)
@@ -410,5 +423,10 @@ namespace PathFinder.WinForms
 
         #endregion
 
+        private void tsmiPluginManager_Click(object sender, EventArgs e)
+        {
+            var frm = new FrmPluginManager();
+            frm.Show(this);
+        }
     }
 }

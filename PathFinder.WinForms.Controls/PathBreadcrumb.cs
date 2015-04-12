@@ -71,8 +71,7 @@ namespace PathFinder.WinForms.Controls
             }
 
             label.ImageAlign = ContentAlignment.MiddleRight;
-            label.Location = new Point(3, 0);
-            label.TabIndex = 0;
+            label.Cursor = Cursors.Hand;
             var size = MeasureString(text, label.Font);
             size.Width += 5;
 

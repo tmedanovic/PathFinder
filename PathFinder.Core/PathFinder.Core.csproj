@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\IPagedList.cs" />
+    <Compile Include="Controls\PagedList.cs" />
     <Compile Include="Dock.cs" />
     <Compile Include="Filesystem\FileInfo.cs" />
     <Compile Include="Filesystem\IFileFolderInfo.cs" />
@@ -55,6 +57,8 @@
     <Compile Include="Filesystem\ShellHelper.cs" />
     <Compile Include="KeystrokeAction.cs" />
     <Compile Include="KeystrokeActions.cs" />
+    <Compile Include="Plugins\PluginPackage.cs" />
+    <Compile Include="Plugins\PluginType.cs" />
     <Compile Include="Views\BaseView.cs" />
     <Compile Include="Filesystem\FolderInfo.cs" />
     <Compile Include="Views\IView.cs" />
