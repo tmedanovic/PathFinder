@@ -33,9 +33,7 @@
             // 
             // flpPager
             // 
-            this.flpPager.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flpPager.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.flpPager.AutoSize = true;
             this.flpPager.Location = new System.Drawing.Point(146, 7);
             this.flpPager.Name = "flpPager";

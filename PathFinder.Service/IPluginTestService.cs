@@ -40,6 +40,11 @@ namespace PathFinder.Service
             throw new NotImplementedException();
         }
 
+        public IPagedList<IServerPluginInfo> GetPluginInfo(IEnumerable<IPluginInfo> plugins)
+        {
+            throw new NotImplementedException();
+        }
+
         public PluginPackage DownloadPlugin(Guid pluginId, string version)
         {
             throw new NotImplementedException();

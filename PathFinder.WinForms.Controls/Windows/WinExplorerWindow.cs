@@ -22,7 +22,7 @@ namespace PathFinder.WinForms.Controls.Windows
             explorerBrowser1.NavigationComplete += explorerBrowser1_NavigationComplete;
 
             m_controlBorderStyle = BorderStyle.FixedSingle;
-            Controls.Cast<Control>().ToList().ForEach(x => x.MouseEnter += lvFiles_MouseEnter);
+            //Controls.Cast<Control>().ToList().ForEach(x => x.MouseEnter += lvFiles_MouseEnter);
             Controls.Cast<Control>().ToList().ForEach(x => x.GotFocus += lvFiles_GotFocus);
             Controls.Cast<Control>().ToList().ForEach(x => x.LostFocus += lvFiles_LostFocus);
 
@@ -140,10 +140,10 @@ namespace PathFinder.WinForms.Controls.Windows
             OnClosed();
         }
 
-        private void lvFiles_MouseEnter(object sender, EventArgs e)
-        {
-            explorerBrowser1.Focus();
-        }
+        //private void lvFiles_MouseEnter(object sender, EventArgs e)
+        //{
+        //    explorerBrowser1.Focus();
+        //}
 
         private void lvFiles_LostFocus(object sender, EventArgs e)
         {

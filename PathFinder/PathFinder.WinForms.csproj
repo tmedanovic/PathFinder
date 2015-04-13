@@ -197,9 +197,9 @@
       <Project>{3BFE897D-64C9-4460-A595-750696B817E2}</Project>
       <Name>PathFinder.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PathFinder.Plugins\PathFinder.Core.Plugins.csproj">
+    <ProjectReference Include="..\PathFinder.Plugins\PathFinder.Plugins.csproj">
       <Project>{EE995A88-31E6-4BDC-9C87-C4C9EEDB28AA}</Project>
-      <Name>PathFinder.Core.Plugins</Name>
+      <Name>PathFinder.Plugins</Name>
     </ProjectReference>
     <ProjectReference Include="..\PathFinder.Register\PathFinder.Register.csproj">
       <Project>{c0556333-5fac-4f1d-847c-5f06addb4f28}</Project>

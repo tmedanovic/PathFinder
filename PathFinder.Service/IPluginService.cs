@@ -13,6 +13,8 @@ namespace PathFinder.Service
 
         IPagedList<IServerPluginInfo> GetPluginUpdates(IEnumerable<IPluginInfo> plugins);
 
+        IPagedList<IServerPluginInfo> GetPluginInfo(IEnumerable<IPluginInfo> plugins);
+
         PluginPackage DownloadPlugin(Guid pluginId, string version);
     }
 }

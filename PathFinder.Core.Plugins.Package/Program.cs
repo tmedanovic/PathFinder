@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
+using PathFinder.Core.Plugins;
 
-namespace PathFinder.Core.Plugins.Package
+namespace PathFinder.Plugins.Package
 {
     class Program
     {
