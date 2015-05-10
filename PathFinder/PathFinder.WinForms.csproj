@@ -200,18 +200,11 @@
     <Content Include="Lib\JacksonSoft.CustomTabControl.dll" />
     <Content Include="Lib\Microsoft.WindowsAPICodePack.dll" />
     <Content Include="Lib\Microsoft.WindowsAPICodePack.Shell.dll" />
-    <Content Include="Lib\Webmicrolab.Common.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Lib\Webmicrolab.Common.Winforms.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Lib\Webmicrolab.Plugins.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Lib\Webmicrolab.Plugins.WinForms.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Lib\Webmicrolab.Common.dll" />
+    <Content Include="Lib\Webmicrolab.Common.Winforms.dll" />
+    <Content Include="Lib\Webmicrolab.Plugins.dll" />
+    <Content Include="Lib\Webmicrolab.Plugins.WinForms.dll" />
+    <Content Include="Lib\wplg.exe" />
     <Content Include="Resources\1426615566_381624.ico" />
   </ItemGroup>
   <ItemGroup>
