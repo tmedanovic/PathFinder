@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using PathFinder.Core;
 using PathFinder.Core.Views;
 using PathFinder.Core.Windows;
 using PathFinder.WinForms.App;
 using PathFinder.WinForms.Controls.Windows;
 using PathFinder.WinForms.Helpers;
 
-namespace PathFinder.WinForms.VIew
+namespace PathFinder.WinForms.View
 {
     public class WindowManager
     {

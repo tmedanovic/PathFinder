@@ -1,4 +1,6 @@
-﻿namespace PathFinder.WinForms.Controls.Windows
+﻿using Webmicrolab.Common.Winforms.Controls;
+
+namespace PathFinder.WinForms.Controls.Windows
 {
     partial class WinExplorerWindow
     {
@@ -28,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.borderedPanel1 = new PathFinder.WinForms.Controls.BorderedPanel();
+            this.borderedPanel1 = new BorderedPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pathBreadcrumb1 = new PathFinder.WinForms.Controls.PathBreadcrumb();
             this.btnClose = new System.Windows.Forms.Button();

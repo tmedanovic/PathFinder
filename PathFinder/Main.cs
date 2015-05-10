@@ -7,22 +7,25 @@ using System.Linq;
 using System.Windows.Forms;
 using PathFinder.Core;
 using PathFinder.Core.Filesystem;
-using PathFinder.Core.Plugins;
 using PathFinder.Core.Views;
 using PathFinder.Core.Windows;
+using PathFinder.Plugins;
 using PathFinder.WinForms.App;
 using PathFinder.WinForms.Controls;
 using PathFinder.WinForms.Controls.Windows;
 using PathFinder.WinForms.Forms;
 using PathFinder.WinForms.Helpers;
 using PathFinder.WinForms.Tracking;
-using PathFinder.WinForms.VIew;
+using PathFinder.WinForms.View;
+using Webmicrolab.Common.Winforms;
+using Webmicrolab.Plugins.Service;
+using Webmicrolab.Plugins.WinForms.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace PathFinder.WinForms
 {
    // [Export(typeof(IPluginHost))]
-    public partial class MainForm : Form, IPluginHost
+    public partial class MainForm : Form, IPluginHostPF
     {
         private readonly FrmFileTreeView m_fileTreeView;
         private readonly FrmFileView m_fileView;
@@ -80,7 +83,7 @@ namespace PathFinder.WinForms
         #region Plugins
 
         [ImportMany(AllowRecomposition = true)]
-        public IEnumerable<Lazy<IPlugin>> Plugins { get; set; }
+        public IEnumerable<Lazy<IPluginPF>> Plugins { get; set; }
         private CompositionContainer m_container;
 
         public void LoadPlugins()
@@ -226,7 +229,7 @@ namespace PathFinder.WinForms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            tsMainMenu.Renderer = new NoLineToolStripRendere();
+            tsMainMenu.Renderer = new NoLineToolStripRenderer();
 
             Workspace.Settings.Load();
             Measures.SplitterSize = 30;
@@ -425,8 +428,9 @@ namespace PathFinder.WinForms
 
         private void tsmiPluginManager_Click(object sender, EventArgs e)
         {
-            var frm = new FrmPluginManager();
+            var frm = new FrmPluginManager(Workspace.PluginsPath(), new RestPluginServiceConsumer("http://localhost:25868/api/plugins/"));
             frm.Show(this);
+            frm.SetCenterToForm(this);
         }
     }
 }

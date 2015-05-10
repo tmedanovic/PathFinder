@@ -1,4 +1,6 @@
-﻿namespace PathFinder.WinForms.Controls
+﻿using Webmicrolab.Common.Winforms.Controls;
+
+namespace PathFinder.WinForms.Controls
 {
     partial class PathBreadcrumb
     {

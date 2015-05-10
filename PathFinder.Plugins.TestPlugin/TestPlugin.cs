@@ -3,18 +3,18 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Windows.Forms;
 using PathFinder.Core;
-using PathFinder.Core.Plugins;
+using Webmicrolab.Plugins;
 
 namespace PathFinder.Plugins.TestPlugin
 {
     [Export(typeof(IPlugin))]
-    public class TestPlugin : IPlugin 
+    public class TestPlugin : IPluginPF
     {
-        public IPluginHost Host { get; set; }
+        public IPluginHostPF Host { get; set; }
         private ToolStrip m_toolstrip;
         private UserControl m_testForm;
 
-        public void Initialize(IPluginHost host)
+        public void Initialize(IPluginHostPF host)
         {
             Host = host;
             ToolStripTest();
@@ -54,15 +54,35 @@ namespace PathFinder.Plugins.TestPlugin
             MessageBox.Show("action keypress: " + keystrokeAction.ActionName);
         }
 
+        public Guid PluginId
+        {
+            get { return new Guid("A4B71D15-9DDB-40A2-A4F1-0C7DC55DE8DA");}
+        }
+
+        public string IconUri
+        {
+            get { return "https://css-tricks.com/apple-touch-icon.png"; }
+        }
+
         public string Name 
         {
             get
             {
-                return "TestPlugin";
+                return "Test plugin";
             }
         }
-        public string Description { get; private set; }
-        public string Version { get; private set; }
+        public string Description 
+        {
+            get { return "This a plugin that does absolutely nothing except messing with your UI :)"; }
+        }
+        public Version Version 
+        {
+            get { return new Version("1.0.1"); }
+        }
 
+        public string CreatedBy
+        {
+            get { return "Dexter's Laboratory"; }
+        }
     }
 }

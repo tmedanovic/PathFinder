@@ -6,7 +6,7 @@ using PathFinder.Core.Filesystem;
 using PathFinder.WinForms.App;
 using PathFinder.WinForms.Controls.Windows;
 using PathFinder.WinForms.Helpers;
-using PathFinder.WinForms.VIew;
+using PathFinder.WinForms.View;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace PathFinder.WinForms.Forms

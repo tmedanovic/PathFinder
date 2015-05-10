@@ -56,31 +56,28 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.105.1.0\lib\net45\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.Composition.AttributedModel">
-      <HintPath>..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.AttributedModel.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Composition.Convention">
-      <HintPath>..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.Convention.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Composition.Hosting">
-      <HintPath>..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.Hosting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Composition.Runtime">
-      <HintPath>..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Composition.TypedParts">
-      <HintPath>..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.TypedParts.dll</HintPath>
-    </Reference>
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
     <Reference Include="System.IO.Compression" />
-    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
+    <Reference Include="Webmicrolab.Common.Winforms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Webmicrolab.Common.Winforms.dll</HintPath>
+    </Reference>
+    <Reference Include="Webmicrolab.Plugins, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Webmicrolab.Plugins.dll</HintPath>
+    </Reference>
+    <Reference Include="Webmicrolab.Plugins.WinForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Webmicrolab.Plugins.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="WeifenLuo.WinFormsUI.Docking">
       <HintPath>..\packages\DockPanelSuite.3.0.0-alpha8\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
     </Reference>
@@ -118,12 +115,6 @@
     <Compile Include="Forms\FrmPluginDock.Designer.cs">
       <DependentUpon>FrmPluginDock.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmPluginManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmPluginManager.Designer.cs">
-      <DependentUpon>FrmPluginManager.cs</DependentUpon>
-    </Compile>
     <Compile Include="Helpers\DictionaryExtensions.cs" />
     <Compile Include="App\SingleInstanceEnforcer.cs" />
     <Compile Include="Helpers\DockStyleExtensions.cs" />
@@ -135,7 +126,6 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Plugins\PluginManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tracking\FavoritesRepository.cs" />
@@ -156,9 +146,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmFileFolders.resx">
       <DependentUpon>FrmFileFolders.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmPluginManager.resx">
-      <DependentUpon>FrmPluginManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -201,14 +188,6 @@
       <Project>{EE995A88-31E6-4BDC-9C87-C4C9EEDB28AA}</Project>
       <Name>PathFinder.Plugins</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PathFinder.Register\PathFinder.Register.csproj">
-      <Project>{c0556333-5fac-4f1d-847c-5f06addb4f28}</Project>
-      <Name>PathFinder.Register</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PathFinder.Service\PathFinder.Service.csproj">
-      <Project>{22F08191-060C-40E7-AA6C-881F642C5C64}</Project>
-      <Name>PathFinder.Service</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PathFinder.WinForms.Controls\PathFinder.WinForms.Controls.csproj">
       <Project>{637E7A7F-4F1C-4AC3-BB3C-E6C64F75CDFA}</Project>
       <Name>PathFinder.WinForms.Controls</Name>
@@ -221,10 +200,22 @@
     <Content Include="Lib\JacksonSoft.CustomTabControl.dll" />
     <Content Include="Lib\Microsoft.WindowsAPICodePack.dll" />
     <Content Include="Lib\Microsoft.WindowsAPICodePack.Shell.dll" />
+    <Content Include="Lib\Webmicrolab.Common.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Lib\Webmicrolab.Common.Winforms.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Lib\Webmicrolab.Plugins.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Lib\Webmicrolab.Plugins.WinForms.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\1426615566_381624.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Shell\" />
+    <Folder Include="Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

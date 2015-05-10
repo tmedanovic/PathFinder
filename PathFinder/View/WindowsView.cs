@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using PathFinder.Core;
 using PathFinder.Core.Views;
 using PathFinder.Core.Windows;
 using PathFinder.WinForms.Controls.Windows;
 
-namespace PathFinder.WinForms.VIew
+namespace PathFinder.WinForms.View
 {
     public class WindowsView : BaseView
     {

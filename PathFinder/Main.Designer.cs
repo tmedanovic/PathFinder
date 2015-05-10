@@ -53,10 +53,10 @@
             this.tsddbFile = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsddbView = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsddbWindow = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsmiOptions = new System.Windows.Forms.ToolStripMenuItem();
             this.tsddbTools = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsmiPluginManager = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsddbWindow = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsmiOptions = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -164,6 +164,7 @@
             // 
             this.tsMainMenu.BackColor = System.Drawing.SystemColors.ControlLight;
             this.tsMainMenu.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsMainMenu.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsMainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsddbFile,
             this.tsddbView,
@@ -171,7 +172,6 @@
             this.tsddbWindow});
             this.tsMainMenu.Location = new System.Drawing.Point(0, 0);
             this.tsMainMenu.Name = "tsMainMenu";
-            this.tsMainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.tsMainMenu.Size = new System.Drawing.Size(1261, 25);
             this.tsMainMenu.Stretch = true;
             this.tsMainMenu.TabIndex = 0;
@@ -203,24 +203,6 @@
             this.tsddbView.Size = new System.Drawing.Size(45, 22);
             this.tsddbView.Text = "View";
             // 
-            // tsddbWindow
-            // 
-            this.tsddbWindow.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsddbWindow.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiOptions});
-            this.tsddbWindow.Image = ((System.Drawing.Image)(resources.GetObject("tsddbWindow.Image")));
-            this.tsddbWindow.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsddbWindow.Name = "tsddbWindow";
-            this.tsddbWindow.Size = new System.Drawing.Size(64, 22);
-            this.tsddbWindow.Text = "Window";
-            // 
-            // tsmiOptions
-            // 
-            this.tsmiOptions.Name = "tsmiOptions";
-            this.tsmiOptions.Size = new System.Drawing.Size(116, 22);
-            this.tsmiOptions.Text = "Options";
-            this.tsmiOptions.Click += new System.EventHandler(this.tsmiOptions_Click);
-            // 
             // tsddbTools
             // 
             this.tsddbTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -239,6 +221,24 @@
             this.tsmiPluginManager.Text = "Plugin manager";
             this.tsmiPluginManager.Click += new System.EventHandler(this.tsmiPluginManager_Click);
             // 
+            // tsddbWindow
+            // 
+            this.tsddbWindow.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsddbWindow.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiOptions});
+            this.tsddbWindow.Image = ((System.Drawing.Image)(resources.GetObject("tsddbWindow.Image")));
+            this.tsddbWindow.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsddbWindow.Name = "tsddbWindow";
+            this.tsddbWindow.Size = new System.Drawing.Size(64, 22);
+            this.tsddbWindow.Text = "Window";
+            // 
+            // tsmiOptions
+            // 
+            this.tsmiOptions.Name = "tsmiOptions";
+            this.tsmiOptions.Size = new System.Drawing.Size(116, 22);
+            this.tsmiOptions.Text = "Options";
+            this.tsmiOptions.Click += new System.EventHandler(this.tsmiOptions_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,6 +249,7 @@
             this.IsMdiContainer = true;
             this.KeyPreview = true;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Path finder";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);

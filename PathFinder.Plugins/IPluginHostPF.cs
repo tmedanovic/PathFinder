@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using PathFinder.Core;
 using PathFinder.Core.Views;
 using PathFinder.Core.Windows;
+using Webmicrolab.Plugins;
 
-namespace PathFinder.Core.Plugins
+namespace PathFinder.Plugins
 {
-    public interface IPluginHost
+    public interface IPluginHostPF : IPluginHost
     {
         event EventHandler<NavigatedEventArgs> RootNavigated;
 
